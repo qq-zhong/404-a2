@@ -1,6 +1,8 @@
 #include <iostream>
 #include <stdlib.h>     
 #include <time.h>
+#include <ctime>
+#include <cstring>
 
 const unsigned int KEY_SIZE = 16;
 const unsigned int BYTE_VALUE_OVERFILL = 256;
@@ -34,11 +36,43 @@ std::string byteArray2hexString(char* bytes, unsigned int array_size) {
     return hexs;
 }
 
+time_t getUnixTime(int year, int month, int day, int hour, int minute, int second) {
+    struct tm timeinfo = {0}; // Initialize struct tm
+    
+    // Set specified date and time components
+    timeinfo.tm_year = year - 1900; // Years since 1900
+    timeinfo.tm_mon = month - 1;    // Months since January [0,11]
+    timeinfo.tm_mday = day;         // Day of the month [1,31]
+    timeinfo.tm_hour = hour;        // Hours since midnight [0,23]
+    timeinfo.tm_min = minute;        // Minutes after the hour [0,59]
+    timeinfo.tm_sec = second;        // Seconds after the minute [0,59]
+    
+    // Convert struct tm to time_t
+    return mktime(&timeinfo);
+}
+
+
 int main(int argc, const char * argv[]) {
+
+    int year = 2024;
+    int month = 2;
+    int day = 15;
+    int hour = 0;
+    int minute = 52;
+    int second = 0;
+    
+    // Get Unix timestamp for specified date and time
+    time_t unixTime = getUnixTime(year, month, day, hour, minute, second);
+    
+    // Print Unix timestamp
+    std::cout << "Unix timestamp for specified date and time: " << unixTime << std::endl;
+
     
     // seed for PRG
     // equal to the current UNIX timestamp
     unsigned int seed = (unsigned int)time(NULL);
+
+    std::cout << "seed = " << seed << "\n";
     
     /* initialize PRG with the given seed */
     srand (seed);
