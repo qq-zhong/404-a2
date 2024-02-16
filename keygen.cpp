@@ -109,6 +109,7 @@ int main(int argc, const char * argv[]) {
         }
         
         std::string key_str = byteArray2hexString(key, KEY_SIZE);
+        // std::cout << "KEY: " << key_str << "\n";
 
         strings.push_back(key_str);
         seed++;
