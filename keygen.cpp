@@ -83,7 +83,9 @@ int main(int argc, const char * argv[]) {
     
     // Get Unix timestamp for specified date and time
     time_t unixTime = getUnixTime(year, month, day, hour, minute, second);
-    unsigned int seed = (unsigned int)unixTime;
+    // unsigned int seed = (unsigned int)unixTime;
+    //                                1582254000
+    unsigned int seed = (unsigned int)1582227000;
 
     
     // Print Unix timestamp
