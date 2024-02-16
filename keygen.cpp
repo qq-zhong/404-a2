@@ -77,8 +77,8 @@ int main(int argc, const char * argv[]) {
     int year = 2020;
     int month = 2;
     int day = 20;
-    int hour = 19;
-    int minute = 29;
+    int hour = 19; // 130 pst = 930 uct = 2100 uct = 1900
+    int minute = 30;
     int second = 0;
     
     // Get Unix timestamp for specified date and time
@@ -93,7 +93,7 @@ int main(int argc, const char * argv[]) {
     // seed for PRG
     // equal to the current UNIX timestamp
 
-    for (int i = 0; i <= 7300; ++i) {
+    for (int i = 0; i <= 7200; ++i) {
         // std::cout << "Iteration " << i << std::endl;
         // unsigned int seed = (unsigned int)time(NULL);
 
@@ -104,8 +104,8 @@ int main(int argc, const char * argv[]) {
         
         char key[KEY_SIZE];
         
-        for (unsigned int i = 0; i < KEY_SIZE; i++) {
-            key[i] = rand() % BYTE_VALUE_OVERFILL;
+        for (unsigned int j = 0; j < KEY_SIZE; j++) {
+            key[j] = rand() % BYTE_VALUE_OVERFILL;
         }
         
         std::string key_str = byteArray2hexString(key, KEY_SIZE);
