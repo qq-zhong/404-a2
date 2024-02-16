@@ -78,7 +78,7 @@ int main(int argc, const char * argv[]) {
     int month = 2;
     int day = 20;
     int hour = 19; // 130 pst = 930 uct = 2100 uct = 1900
-    int minute = 30;
+    int minute = 0;
     int second = 0;
     
     // Get Unix timestamp for specified date and time
@@ -93,7 +93,7 @@ int main(int argc, const char * argv[]) {
     // seed for PRG
     // equal to the current UNIX timestamp
 
-    for (int i = 0; i <= 7200; ++i) {
+    for (int i = 0; i <= 10800; ++i) {
         // std::cout << "Iteration " << i << std::endl;
         // unsigned int seed = (unsigned int)time(NULL);
 
